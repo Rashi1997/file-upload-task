@@ -5,16 +5,17 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.fileupload.model.File;
 import com.fileupload.service.FileUploadService;
 
-@CrossOrigin
+
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("fileupload")
 public class FileUploadController {
@@ -28,7 +29,7 @@ public class FileUploadController {
 	}
 	
 	@RequestMapping(value="/add",method = RequestMethod.POST)
-	public void addFile(@RequestBody File file) {
+	public synchronized void addFile(@RequestBody File file) {
 		fileUploadService.addFile(file);
 	}
 }
