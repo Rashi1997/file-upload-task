@@ -1,13 +1,27 @@
-# file-upload-task
+# File Upload Task
 
-## Project setup
+## Usage
+
+### MAC OS Users
+To start the server run shell script - mac.sh using the below command.
 ```
+sh mac.sh
+```
+This will run the server end.
+Now go to *lib/dist/index.html* and open the html page.
+
+### Windows OS Users
+Double click on the file - windows.bat which will automatically run the server and open index.html.
+
+## Project Setup
+```
+cd front-end
 npm install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm start
 ```
 
 ### Compiles and minifies for production
@@ -25,10 +39,4 @@ npm run test:unit
 npm run test:e2e
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
