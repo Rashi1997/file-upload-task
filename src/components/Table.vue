@@ -1,20 +1,25 @@
 <template>
   <div>
-    <h1> Table</h1>
-    {{data}}
+    <b-table :show-empty=true striped hover :items="data.data"></b-table>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "Table",
+  data() {
+    return {
+      timer: ''
+    }
+  },
   computed: {
     ...mapState(["data"])
   },
-  mounted() {
+  created() {
     this.fetchData();
+    this.timer = setInterval(this.fetchData, 5000)
   },
   methods: {
     ...mapActions("data", ["fetchData"])
