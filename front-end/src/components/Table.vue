@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-table bordered small :show-empty=true :items="data.data" :fields="fields"></b-table>
+    <b-table id="table" bordered small :show-empty=true :items="data.data" :fields="fields"></b-table>
   </div>
 </template>
 

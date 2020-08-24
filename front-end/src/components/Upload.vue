@@ -1,15 +1,8 @@
 <template>
-  <div style="display: table;margin: 0 auto;">
+  <div class="upload-container">
     <!-- Styled -->
     <input ref="file" id="fileUpload" type="file" @change="post" v-show="false">
     <button @click="chooseFile" :disabled="data.disabled" class="button">Upload</button>
-    <!-- <b-form-file
-      v-model="file"
-      placeholder=""
-      browse-text="Upload" 
-      @input="post()"
-      :disabled="data.disabled"
-    ></b-form-file> -->
   </div>
 </template>
 
@@ -22,12 +15,6 @@ export default {
   name: "Upload",
   computed: {
     ...mapState(["data"])
-  },
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
-    }
   },
   data() {
     return {
@@ -71,5 +58,9 @@ export default {
 .button{
   background-color: #4472c4 ;
   border-radius: 7px;
+}
+.upload-container{
+  display: table;
+  margin: 0 auto;
 }
 </style>

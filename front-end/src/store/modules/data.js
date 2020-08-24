@@ -4,7 +4,6 @@ export default {
   namespaced: true,
   state: {
     data: [],
-    file: {},
     disabled: false
   },
   mutations: {
@@ -24,9 +23,6 @@ export default {
       }).catch(function(){
         console.log('Get FAILURE!!');
       });
-    },
-    publishData() {
-        return services.postData()
     }
   }
 };
