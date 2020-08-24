@@ -1,13 +1,15 @@
 <template>
   <div style="display: table;margin: 0 auto;">
     <!-- Styled -->
-    <b-form-file
+    <input ref="file" id="fileUpload" type="file" @change="post" v-show="false">
+    <button @click="chooseFile" :disabled="data.disabled" class="button">Upload</button>
+    <!-- <b-form-file
       v-model="file"
       placeholder=""
       browse-text="Upload" 
       @input="post()"
       :disabled="data.disabled"
-    ></b-form-file>
+    ></b-form-file> -->
   </div>
 </template>
 
@@ -29,13 +31,15 @@ export default {
   },
   data() {
     return {
-        file: null
+        file: {}
     }
   },
   methods: {
     ...mapActions("data", ["fetchData"]),
     ...mapActions(["publishData"]),
-    post: function () {
+    post() {
+        const file = this.$refs.file.files[0];
+        this.file = file;
         var filedata = {}
         if(this.file){
           filedata.fileName = this.file.name;
@@ -56,7 +60,16 @@ export default {
         });
         }
         this.fetchData();
+    },
+    chooseFile() {
+      document.getElementById('fileUpload').click();
     }
   }
 };
 </script>
+<style scoped>
+.button{
+  background-color: #4472c4 ;
+  border-radius: 7px;
+}
+</style>
